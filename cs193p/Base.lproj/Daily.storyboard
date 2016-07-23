@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IBo-JU-oDF">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Zhihu Daily-->
+        <scene sceneID="Ait-ji-sHR">
+            <objects>
+                <tableViewController storyboardIdentifier="dailyTableView" title="Zhihu Daily" id="IBo-JU-oDF" customClass="DailyTableViewController" customModule="cs193p" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="0mo-W2-AQW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="storyCell" rowHeight="160" id="8vP-ZI-Hd8" customClass="StoryTableViewCell" customModule="cs193p" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="160"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8vP-ZI-Hd8" id="dYh-SS-N9q">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="160"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="SEH-f9-RQg">
+                                            <rect key="frame" x="512" y="44" width="72" height="72"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="72" id="cNd-8i-U6y"/>
+                                                <constraint firstAttribute="height" constant="72" id="yiC-qR-f3E"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="蚊子的嘴巴如此精巧，怪不得每次都把我咬得猝不及防" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85X-vO-umQ">
+                                            <rect key="frame" x="16" y="44" width="488" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="SEH-f9-RQg" firstAttribute="leading" secondItem="85X-vO-umQ" secondAttribute="trailing" constant="8" symbolic="YES" id="LZ2-EH-tId"/>
+                                        <constraint firstItem="85X-vO-umQ" firstAttribute="leading" secondItem="dYh-SS-N9q" secondAttribute="leadingMargin" constant="8" id="XsY-vZ-9Hg"/>
+                                        <constraint firstItem="SEH-f9-RQg" firstAttribute="centerY" secondItem="dYh-SS-N9q" secondAttribute="centerY" id="cpy-pZ-UO1"/>
+                                        <constraint firstItem="85X-vO-umQ" firstAttribute="top" secondItem="SEH-f9-RQg" secondAttribute="top" id="gFi-eW-Qvg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="SEH-f9-RQg" secondAttribute="trailing" constant="8" id="pla-fc-TAH"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
+                                <connections>
+                                    <outlet property="itemImage" destination="SEH-f9-RQg" id="035-XL-nIp"/>
+                                    <outlet property="itemTitle" destination="85X-vO-umQ" id="aUM-V4-dXC"/>
+                                    <segue destination="Q8t-sL-1Ig" kind="show" id="C2K-3x-uzH"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="IBo-JU-oDF" id="Ceq-5M-fX6"/>
+                            <outlet property="delegate" destination="IBo-JU-oDF" id="VHj-GT-qxf"/>
+                        </connections>
+                    </tableView>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Kkf-ci-tvq">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="IBo-JU-oDF" eventType="valueChanged" id="sVj-i9-14y"/>
+                        </connections>
+                    </refreshControl>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RkO-kG-90p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="896" y="2005"/>
+        </scene>
+        <!--Story Web View Controller-->
+        <scene sceneID="gwb-DX-UWJ">
+            <objects>
+                <viewController id="Q8t-sL-1Ig" customClass="StoryWebViewController" customModule="cs193p" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ogt-ip-PMk"/>
+                        <viewControllerLayoutGuide type="bottom" id="pXg-gm-I2S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9tW-Oo-1mT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fEJ-XU-Jm1">
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fEJ-XU-Jm1" firstAttribute="leading" secondItem="9tW-Oo-1mT" secondAttribute="leading" id="4ra-Aw-01F"/>
+                            <constraint firstItem="pXg-gm-I2S" firstAttribute="top" secondItem="fEJ-XU-Jm1" secondAttribute="bottom" id="Lyf-Ru-1YI"/>
+                            <constraint firstItem="fEJ-XU-Jm1" firstAttribute="top" secondItem="9tW-Oo-1mT" secondAttribute="top" id="RjD-ho-cLy"/>
+                            <constraint firstAttribute="trailing" secondItem="fEJ-XU-Jm1" secondAttribute="trailing" id="emK-Ng-l4J"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="storyWebview" destination="fEJ-XU-Jm1" id="XfD-pP-c6b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="65b-XQ-4Nn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1628" y="2005"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="smile" width="64" height="64"/>
+    </resources>
+</document>
